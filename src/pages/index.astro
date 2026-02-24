@@ -21,52 +21,58 @@ const featuredPosts = posts2025AndLater.filter(({ data }) => data.featured);
 const recentPosts = posts2025AndLater.filter(({ data }) => !data.featured);
 ---
 
-<Layout description="Peter Steinberger: AI-powered tools from Swift roots to web frontiers. Every commit lands on GitHub for you to fork & remix.">
+<Layout description="Junho (@gongpyung): Seoul-based software engineer hooked on AI, building practical tools and sharing engineering notes.">
   <StructuredData type="WebSite" data={{}} />
   <StructuredData type="Person" data={{}} />
   <Header />
   <main id="main-content" data-layout="index">
-    <section id="hero" class="pt-6 pb-4">
-      <div class="flex flex-col sm:flex-row items-start gap-4">
-        <a href="/about" class="block mx-auto sm:mx-0 group">
-          <img 
-            src="/peter-avatar.jpg" 
-            alt="Peter Steinberger" 
-            class="w-40 h-40 rounded-full object-cover flex-shrink-0 transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl"
-          />
-        </a>
-        <div class="flex-1 text-center sm:text-left">
-          <div class="flex items-center gap-2 justify-center sm:justify-start">
-            <h1 class="my-2 inline-block text-2xl font-bold sm:my-4 sm:text-3xl">
-              Hi, I'm @steipete.
-            </h1>
-            <a
-              target="_blank"
-              href="/rss.xml"
-              class="inline-block"
-              aria-label="rss feed"
-              title="RSS Feed"
+    <section id="hero" class="pt-8 pb-6">
+      <div class="rounded-2xl border border-skin-line bg-skin-fill/40 p-6 sm:p-8">
+        <div class="flex flex-col items-start gap-6 sm:flex-row">
+          <a href="/about" class="group mx-auto block sm:mx-0">
+            <div
+              class="flex h-32 w-32 items-center justify-center rounded-full border border-skin-line bg-skin-card text-3xl font-bold tracking-wide text-skin-accent transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl"
+              aria-label="Junho Gongpyung profile"
             >
-              <IconRss
-                width={20}
-                height={20}
-                class="scale-125 stroke-accent stroke-3"
-              />
-              <span class="sr-only">RSS Feed</span>
-            </a>
+              JH
+            </div>
+          </a>
+
+          <div class="min-w-0 flex-1 text-center sm:text-left">
+            <div class="flex items-center justify-center gap-2 sm:justify-start">
+              <h1 class="my-2 inline-block text-2xl font-bold sm:my-4 sm:text-3xl">Hi, I'm Junho (@gongpyung).</h1>
+              <a target="_blank" href="/rss.xml" class="inline-block" aria-label="rss feed" title="RSS Feed">
+                <IconRss width={20} height={20} class="scale-125 stroke-accent stroke-3" />
+                <span class="sr-only">RSS Feed</span>
+              </a>
+            </div>
+
+            <p class="text-base leading-7 sm:text-lg">📍 Seoul, Korea · 💻 Software Engineer · 🤖 Hooked on AI</p>
+            <p class="mt-2 text-sm text-skin-base/80 sm:text-base">
+              I build developer-focused products like ChangeLog.kr and share practical notes on shipping software.
+            </p>
+
+            <div class="mt-4 flex flex-wrap items-center justify-center gap-2 sm:justify-start">
+              <a href="https://changelog.kr" target="_blank" rel="noopener noreferrer" class="rounded-full border border-skin-line px-3 py-1 text-xs font-medium transition hover:border-skin-accent hover:text-skin-accent">
+                ChangeLog.kr
+              </a>
+              <a href="https://github.com/gongpyung/unsu-daekong" target="_blank" rel="noopener noreferrer" class="rounded-full border border-skin-line px-3 py-1 text-xs font-medium transition hover:border-skin-accent hover:text-skin-accent">
+                운수대콩
+              </a>
+              <a href="https://gongpyung.github.io" target="_blank" rel="noopener noreferrer" class="rounded-full border border-skin-line px-3 py-1 text-xs font-medium transition hover:border-skin-accent hover:text-skin-accent">
+                LENA Docs
+              </a>
+            </div>
+
+            {
+              // only display if at least one social link is enabled
+              SOCIALS.filter((social) => social.active).length > 0 && (
+                <div class="mt-4 flex flex-row items-center justify-center sm:justify-start">
+                  <Socials />
+                </div>
+              )
+            }
           </div>
-          <p>
-            AI-powered tools from Swift roots to web frontiers.<br />
-            Every commit lands on GitHub for you to fork & remix.
-          </p>
-          {
-            // only display if at least one social link is enabled
-            SOCIALS.filter((social) => social.active).length > 0 && (
-              <div class="mt-4 flex flex-row items-center justify-center sm:justify-start">
-                <Socials />
-              </div>
-            )
-          }
         </div>
       </div>
     </section>
@@ -114,8 +120,7 @@ const recentPosts = posts2025AndLater.filter(({ data }) => !data.featured);
 
 <script>
   document.addEventListener("astro:page-load", () => {
-    const indexLayout = (document.querySelector("#main-content") as HTMLElement)
-      ?.dataset?.layout;
+    const indexLayout = (document.querySelector("#main-content") as HTMLElement)?.dataset?.layout;
     if (indexLayout) {
       sessionStorage.setItem("backUrl", "/");
     }
