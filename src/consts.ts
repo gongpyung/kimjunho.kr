@@ -31,9 +31,9 @@ interface Site {
 
 // Site configuration
 export const SITE: Site = {
-  website: "https://gongpyung.dev/",
+  website: "https://kimjunho.kr/",
   author: "Gongpyung",
-  profile: "https://gongpyung.dev/about",
+  profile: "https://kimjunho.kr/about",
   desc: "Gongpyung's personal homepage and development notes.",
   title: "KIM JUNHO",
   ogImage: "favicon.ico",
