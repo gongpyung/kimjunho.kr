@@ -2,39 +2,63 @@ import { SITE } from "./consts";
 
 export const SOCIALS = [
   {
-    name: "Github",
-    href: "https://github.com/steipete",
-    linkTitle: ` ${SITE.title} on Github`,
+    name: "GitHub",
+    href: "https://github.com/hong9",
+    linkTitle: `${SITE.title} on GitHub`,
     icon: "github",
     active: true,
   },
   {
     name: "X",
-    href: "https://x.com/steipete",
+    href: "https://x.com/gongpyung",
     linkTitle: `${SITE.title} on X`,
     icon: "twitter",
-    active: true,
+    active: false,
   },
   {
     name: "BlueSky",
-    href: "https://bsky.app/profile/steipete.me",
+    href: "https://bsky.app/profile/gongpyung.social",
     linkTitle: `${SITE.title} on BlueSky`,
     icon: "bluesky",
-    active: true,
+    active: false,
   },
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/in/steipete/",
+    href: "https://www.linkedin.com/",
     linkTitle: `${SITE.title} on LinkedIn`,
     icon: "linkedin",
-    active: true,
+    active: false,
   },
   {
     name: "Mail",
-    href: "mailto:peter@steipete.me",
+    href: "mailto:hello@gongpyung.dev",
     linkTitle: `Send an email to ${SITE.title}`,
     icon: "mail",
-    active: true,
+    active: false,
+  },
+] as const;
+
+export const PROJECTS = [
+  {
+    name: "Gongpyung Homepage",
+    description: "Personal homepage and blog built with Astro.",
+    href: "/",
+    status: "active",
+    featured: true,
+  },
+  {
+    name: "Starter Blog",
+    description: "Initial publishing setup and baseline post structure.",
+    href: "/posts/",
+    status: "active",
+    featured: false,
+  },
+  {
+    name: "Project Portfolio",
+    description: "Project showcase section planned for future updates.",
+    href: "/about/",
+    status: "planned",
+    featured: false,
   },
 ] as const;
 
