@@ -3,7 +3,7 @@ import { SITE } from "./consts";
 export const SOCIALS = [
   {
     name: "GitHub",
-    href: "https://github.com/hong9",
+    href: "https://github.com/gongpyung",
     linkTitle: `${SITE.title} on GitHub`,
     icon: "github",
     active: true,

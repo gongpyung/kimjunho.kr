@@ -35,7 +35,7 @@ export const SITE: Site = {
   author: "Gongpyung",
   profile: "https://gongpyung.dev/about",
   desc: "Gongpyung's personal homepage and development notes.",
-  title: "Gongpyung",
+  title: "KIM JUNHO",
   ogImage: "favicon.ico",
   lightAndDarkMode: true,
   postPerIndex: 10,
@@ -71,7 +71,7 @@ export const NAV_LINKS: SocialLink[] = [
 // Social media links
 export const SOCIAL_LINKS: SocialLink[] = [
   {
-    href: "https://github.com/hong9",
+    href: "https://github.com/gongpyung",
     label: "GitHub",
   },
   {
