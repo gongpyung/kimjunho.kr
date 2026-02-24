@@ -21,6 +21,7 @@ pnpm-debug.log*
 
 # Vercel
 .vercel/
+.omx/
 
 # Temporary directories used for importing posts
 temp-*/

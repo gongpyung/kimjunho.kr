@@ -9,17 +9,16 @@ const { variant = "default" } = Astro.props;
 <div class={variant === 'default' ? 'newsletter-box bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-lg p-6 my-8' : 'newsletter-compact mt-6'}>
   {variant === 'default' && (
     <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
-      New posts, shipping stories, and nerdy links straight to your inbox.
+      Updates are currently shared through GitHub and blog posts.
     </p>
   )}
   
   <form
-    action="https://buttondown.com/api/emails/embed-subscribe/steipete"
-    method="post"
-    target="_blank"
+    action="mailto:yeahong9@gmail.com"
+    method="get"
     class="flex flex-col sm:flex-row gap-3"
   >
-    <input type="hidden" name="tag" value="steipete" />
+    <input type="hidden" name="subject" value="Subscribe: Gongpyung updates" />
     <input
       type="text"
       name="name"
@@ -38,13 +37,13 @@ const { variant = "default" } = Astro.props;
       class="px-6 py-2 bg-accent rounded-md hover:bg-accent/90 transition-colors font-medium whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
       style="color: white;"
     >
-      Subscribe
+      Contact
     </button>
   </form>
   
   {variant === 'default' && (
     <p class="text-xs text-gray-500 dark:text-gray-400 mt-3">
-      2× per month, pure signal, zero fluff.
+      You can also follow @hong9 on GitHub.
     </p>
   )}
 </div>
