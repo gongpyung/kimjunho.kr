@@ -1,75 +1,85 @@
 ---
+import { SITE, SOCIALS } from "@/config";
+
 export interface Props {
   type: "BlogPosting" | "Person" | "WebSite";
-  data: any;
+  data: Record<string, any>;
 }
 
 const { type, data } = Astro.props;
+const siteBase = SITE.website.endsWith("/") ? SITE.website : `${SITE.website}/`;
+const defaultImage = new URL(SITE.ogImage ?? "og.png", siteBase).href;
+const searchTarget = `${siteBase.replace(/\/$/, "")}/search?q={search_term_string}`;
 
-let structuredData = {};
+const toAbsoluteUrl = (value?: string) => (value ? new URL(value, siteBase).href : defaultImage);
+
+const sameAs = SOCIALS.filter(({ active, href }) => active && href.startsWith("http")).map(
+  ({ href }) => href
+);
+
+const person = {
+  "@type": "Person",
+  name: SITE.author,
+  url: SITE.profile || siteBase,
+  image: defaultImage,
+  ...(sameAs.length > 0 ? { sameAs } : {}),
+  description: SITE.desc,
+};
+
+let structuredData: Record<string, any> = {};
 
 if (type === "BlogPosting") {
+  const publishedAt = data.pubDatetime?.toISOString?.() || data.pubDatetime;
+  const modifiedAt = data.modDatetime?.toISOString?.() || publishedAt;
+  const articleUrl = toAbsoluteUrl(data.url);
+
   structuredData = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: data.title,
-    description: data.description,
+    description: data.description || SITE.desc,
     author: {
       "@type": "Person",
-      name: data.author || "Peter Steinberger",
-      url: "https://steipete.me/about",
+      name: data.author || SITE.author,
+      url: SITE.profile || siteBase,
     },
-    datePublished: data.pubDatetime.toISOString(),
-    dateModified: data.modDatetime?.toISOString() || data.pubDatetime.toISOString(),
-    publisher: {
-      "@type": "Person",
-      name: "Peter Steinberger",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://steipete.me/peter-avatar.jpg",
-      },
-    },
+    datePublished: publishedAt,
+    dateModified: modifiedAt,
+    publisher: person,
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": data.url,
+      "@id": articleUrl,
     },
-    image: data.ogImage || "https://steipete.me/peter-avatar.jpg",
-    articleSection: data.tags?.[0] || "Technology",
-    keywords: data.tags?.join(", ") || "",
-    wordCount: data.wordCount,
-    timeRequired: data.readingTime,
+    image: toAbsoluteUrl(data.ogImage),
+    ...(data.tags?.length > 0
+      ? {
+          articleSection: data.tags[0],
+          keywords: data.tags.join(", "),
+        }
+      : {}),
+    ...(data.wordCount ? { wordCount: data.wordCount } : {}),
+    ...(data.readingTime ? { timeRequired: data.readingTime } : {}),
   };
 } else if (type === "Person") {
   structuredData = {
     "@context": "https://schema.org",
-    "@type": "Person",
-    name: "Peter Steinberger",
-    url: "https://steipete.me",
-    image: "https://steipete.me/peter-avatar.jpg",
-    sameAs: [
-      "https://github.com/steipete",
-      "https://twitter.com/steipete",
-      "https://bsky.app/profile/steipete.me",
-    ],
-    jobTitle: "Software Engineer",
-    description:
-      "AI-powered tools from Swift roots to web frontiers. Every commit lands on GitHub for you to fork & remix.",
+    ...person,
   };
 } else if (type === "WebSite") {
   structuredData = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Peter Steinberger",
-    url: "https://steipete.me",
-    description:
-      "AI-powered tools from Swift roots to web frontiers. Every commit lands on GitHub for you to fork & remix.",
+    name: SITE.title,
+    url: siteBase,
+    description: SITE.desc,
     author: {
       "@type": "Person",
-      name: "Peter Steinberger",
+      name: SITE.author,
+      url: SITE.profile || siteBase,
     },
     potentialAction: {
       "@type": "SearchAction",
-      target: "https://steipete.me/search?q={search_term_string}",
+      target: searchTarget,
       "query-input": "required name=search_term_string",
     },
   };

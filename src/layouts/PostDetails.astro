@@ -56,13 +56,11 @@ if (!ogImageUrl && SITE.dynamicOgImage) {
 }
 
 // Resolve OG image URL (or fallback to SITE.ogImage / default `og.png`)
-const ogImage = ogImageUrl ? new URL(ogImageUrl, Astro.url.origin).href : undefined;
+const ogImage = ogImageUrl ? new URL(ogImageUrl, SITE.website).href : undefined;
 
 // Generate the canonical URL - always use the full path with year
 const postPath = getPath(post.id, post.filePath, true);
-const computedCanonicalURL =
-  canonicalURL ||
-  (Astro.site ? new URL(postPath, Astro.site).href : new URL(postPath, Astro.url.origin).href);
+const computedCanonicalURL = canonicalURL || new URL(postPath, Astro.site ?? SITE.website).href;
 
 const layoutProps = {
   title: `${title} | ${SITE.title}`,
@@ -100,7 +98,7 @@ const wordCount = (post.body ?? "").split(/\s+/).length;
       author,
       pubDatetime,
       modDatetime,
-      url: Astro.url.href,
+      url: computedCanonicalURL,
       ogImage,
       tags,
       wordCount,
