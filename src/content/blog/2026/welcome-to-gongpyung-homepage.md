@@ -1,5 +1,5 @@
 ---
-title: "Welcome to Gongpyung Homepage"
+title: "Welcome to kimjunho.kr"
 description: "A fresh start for the Gongpyung personal homepage."
 pubDatetime: 2026-02-24T09:00:00Z
 tags:

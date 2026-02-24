@@ -3,7 +3,7 @@ import type { APIRoute } from "astro";
 export const GET: APIRoute = async () => {
   const markdownContent = `# Gongpyung
 
-Welcome to Gongpyung Homepage.
+Welcome to kimjunho.kr.
 
 This markdown endpoint provides a lightweight text-only version of the site.
 

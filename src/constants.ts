@@ -40,7 +40,7 @@ export const SOCIALS = [
 
 export const PROJECTS = [
   {
-    name: "Gongpyung Homepage",
+    name: "kimjunho.kr",
     description: "Personal homepage and blog built with Astro.",
     href: "/",
     status: "active",

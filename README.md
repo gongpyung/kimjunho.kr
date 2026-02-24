@@ -1,4 +1,4 @@
-# Gongpyung Homepage
+# kimjunho.kr
 
 Personal homepage and blog built with Astro.
 

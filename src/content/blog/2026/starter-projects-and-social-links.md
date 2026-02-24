@@ -1,6 +1,6 @@
 ---
 title: "Starter Projects and Social Links"
-description: "Initial project list and social link setup for Gongpyung Homepage."
+description: "Initial project list and social link setup for kimjunho.kr."
 pubDatetime: 2026-02-24T11:00:00Z
 tags:
   - projects

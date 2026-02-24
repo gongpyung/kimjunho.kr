@@ -46,7 +46,7 @@ export const SITE: Site = {
   editPost: {
     enabled: true,
     text: "Edit on GitHub",
-    url: "https://github.com/hong9/gongpyung-homepage/edit/main/",
+    url: "https://github.com/gongpyung/kimjunho.kr/edit/main/",
   },
   dynamicOgImage: true,
   lang: "en",
