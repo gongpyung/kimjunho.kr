@@ -1,7 +1,9 @@
 ---
+import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
 import IconRss from "@/assets/icons/IconRss.svg";
+import profileImage from "@/assets/images/8156548.jpeg";
 import Card from "@/components/Card.astro";
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
@@ -30,12 +32,14 @@ const recentPosts = posts2025AndLater.filter(({ data }) => !data.featured);
       <div class="rounded-2xl border border-skin-line bg-skin-fill/40 p-6 sm:p-8">
         <div class="flex flex-col items-start gap-6 sm:flex-row">
           <a href="/about" class="group mx-auto block sm:mx-0">
-            <div
-              class="flex h-32 w-32 items-center justify-center rounded-full border border-skin-line bg-skin-card text-3xl font-bold tracking-wide text-skin-accent transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl"
-              aria-label="Junho Gongpyung profile"
-            >
-              JH
-            </div>
+            <Image
+              src={profileImage}
+              alt="Junho Gongpyung profile"
+              width={128}
+              height={128}
+              class="h-32 w-32 rounded-full border border-skin-line object-cover transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl"
+              loading="eager"
+            />
           </a>
 
           <div class="min-w-0 flex-1 text-center sm:text-left">

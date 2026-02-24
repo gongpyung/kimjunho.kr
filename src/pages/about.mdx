@@ -5,12 +5,19 @@ description: "Junho Gongpyung is a Seoul-based software engineer hooked on AI, b
 ---
 
 import NewsletterForm from '../components/NewsletterForm.astro';
+import { Image } from "astro:assets";
+import profileImage from "../assets/images/8156548.jpeg";
 
 <div class="not-prose mb-8 rounded-2xl border border-skin-line bg-skin-fill/40 p-6 sm:p-8">
   <div class="flex flex-col gap-6 md:flex-row md:items-start">
-    <div class="mx-auto flex h-28 w-28 items-center justify-center rounded-full border border-skin-line bg-skin-card text-3xl font-bold tracking-wide text-skin-accent md:mx-0 md:h-32 md:w-32">
-      JH
-    </div>
+    <Image
+      src={profileImage}
+      alt="Junho Gongpyung profile"
+      width={128}
+      height={128}
+      class="mx-auto h-28 w-28 rounded-full border border-skin-line object-cover md:mx-0 md:h-32 md:w-32"
+      loading="eager"
+    />
 
     <div class="min-w-0 flex-1">
       <p class="m-0 text-base leading-7 sm:text-lg">
