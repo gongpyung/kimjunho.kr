@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>콩부부 시드니 여행 ❤️</title>
+    <link rel="preconnect" href="https://www.google.com" />
+    <link rel="preconnect" href="https://maps.google.com" />
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="trip-header">
+        <div class="hero-media" aria-hidden="true"></div>
+        <div class="trip-header__content">
+          <div>
+            <p class="eyebrow">4월 30일 - 5월 5일</p>
+            <h1>콩부부 시드니 여행 ❤️</h1>
+            <div class="trip-summary" aria-label="여행 요약">
+              <span>6일</span>
+              <span>20+장소</span>
+              <span>Google Maps</span>
+            </div>
+            <p class="hotel">숙소: 메리톤 켄트 스트리트</p>
+          </div>
+        </div>
+      </header>
+
+      <main class="planner">
+        <aside class="day-nav" aria-label="일자 선택">
+          <button class="day-nav__button is-active" data-day="all" type="button">전체</button>
+        </aside>
+
+        <section class="itinerary" aria-label="시드니 여행 일정">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Itinerary</p>
+              <h2>일정표</h2>
+            </div>
+            <a class="compact-link" id="openHotelMap" target="_blank" rel="noreferrer">숙소 지도</a>
+          </div>
+          <div class="day-list" id="dayList"></div>
+        </section>
+
+        <section class="map-panel" aria-label="지도">
+          <div class="map-panel__inner">
+            <div class="map-toolbar">
+              <div>
+                <p class="eyebrow">Map</p>
+                <h2 id="mapTitle">메리톤 켄트 스트리트</h2>
+              </div>
+              <a class="map-open-link" id="mapOpenLink" target="_blank" rel="noreferrer">Google Maps</a>
+            </div>
+            <div class="map-frame-wrap">
+              <iframe
+                id="mapFrame"
+                title="선택한 장소 Google Maps"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="map-details" id="mapDetails"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
