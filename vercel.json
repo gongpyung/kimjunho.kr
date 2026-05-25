@@ -17,6 +17,16 @@
       "permanent": true
     }
   ],
+  "rewrites": [
+    {
+      "source": "/recipick",
+      "destination": "https://recipick-lemon.vercel.app/recipick"
+    },
+    {
+      "source": "/recipick/:path*",
+      "destination": "https://recipick-lemon.vercel.app/recipick/:path*"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
